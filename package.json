@@ -1,11 +1,10 @@
 {
   "name": "@hiogawa/vite-plugin-fullstack",
   "version": "0.0.8",
-  "homepage": "https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack",
+  "homepage": "https://github.com/hi-ogawa/vite-plugin-fullstack",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hi-ogawa/vite-plugins.git",
-    "directory": "packages/fullstack"
+    "url": "git+https://github.com/hi-ogawa/vite-plugin-fullstack.git"
   },
   "license": "MIT",
   "type": "module",
@@ -20,7 +19,11 @@
     "dev": "tsdown --sourcemap --watch src",
     "build": "tsdown",
     "prepack": "tsdown --clean",
-    "test-e2e": "playwright test"
+    "test-e2e": "playwright test",
+    "tsc": "tsc -b tsconfig.json e2e/tsconfig.json examples/*/tsconfig.json",
+    "lint": "biome check --write .",
+    "lint-check": "biome check .",
+    "changelog": "pnpm dlx @hiogawa/changelog --repo https://github.com/hi-ogawa/vite-plugin-fullstack"
   },
   "dependencies": {
     "magic-string": "^0.30.17",
@@ -29,5 +32,38 @@
   },
   "peerDependencies": {
     "vite": "^7.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.5-nightly.81fdedb",
+    "@playwright/test": "^1.53.1",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^22.15.34",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tinyexec": "^1.0.1",
+    "tree-kill": "^1.2.2",
+    "tsdown": "^0.12.9",
+    "typescript": "^5.8.3",
+    "vite": "^7.1.5",
+    "wrangler": "^4.41.0"
+  },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
+  "volta": {
+    "node": "22.19.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "$vite",
+      "react": "$react",
+      "react-dom": "$react-dom",
+      "@playwright/test": "$@playwright/test",
+      "@types/react": "$@types/react",
+      "@types/react-dom": "$@types/react-dom",
+      "@vitejs/plugin-react": "$@vitejs/plugin-react",
+      "rolldown": "1.0.0-beta.21"
+    }
   }
 }
