@@ -1,0 +1,25 @@
+name: setup
+inputs:
+  playwright:
+    description: install playwright
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+
+    - run: corepack enable
+      shell: bash
+
+    - run: pnpm i
+      shell: bash
+
+    - run: pnpm build
+      shell: bash
+
+    - run: npx playwright install chromium
+      shell: bash
+      if: ${{ inputs.playwright == 'true' }}

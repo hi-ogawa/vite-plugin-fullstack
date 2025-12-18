@@ -9,7 +9,7 @@
     "preview": "srvx --prod -s ../client dist/ssr/index.js"
   },
   "devDependencies": {
-    "@hiogawa/vite-plugin-fullstack": "latest",
+    "@hiogawa/vite-plugin-fullstack": "workspace:*",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "latest",

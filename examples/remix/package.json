@@ -8,7 +8,7 @@
     "preview": "srvx --prod -s ../client dist/ssr/index.js"
   },
   "devDependencies": {
-    "@hiogawa/vite-plugin-fullstack": "latest",
+    "@hiogawa/vite-plugin-fullstack": "workspace:*",
     "@remix-run/dom": "0.0.0-experimental-remix-jam.6",
     "@remix-run/events": "0.0.0-experimental-remix-jam.5",
     "magic-string": "^0.30.19",
