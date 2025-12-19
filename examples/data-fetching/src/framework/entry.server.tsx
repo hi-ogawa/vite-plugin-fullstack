@@ -1,15 +1,15 @@
 import { RPCHandler } from "@orpc/server/fetch";
-import { renderToReadableStream } from "react-dom/server.edge";
-import { App } from "../app";
-import serverAssets from "../app?assets=ssr";
-import { __rpc_router__ } from "../rpc";
-import clientAssets from "./entry.client.tsx?assets=client";
-import "./rpc.server";
 import {
   QueryClient,
   QueryClientProvider,
   dehydrate,
 } from "@tanstack/react-query";
+import { renderToReadableStream } from "react-dom/server.edge";
+import { App } from "../app";
+import serverAssets from "../app?assets=ssr";
+import { __rpc_router__ } from "../rpc";
+import "./rpc.server";
+import clientAssets from "./entry.client.tsx?assets=client";
 
 const rpcHandler = new RPCHandler(__rpc_router__);
 const assets = clientAssets.merge(serverAssets);

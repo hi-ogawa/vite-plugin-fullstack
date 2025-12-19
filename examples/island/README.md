@@ -30,6 +30,7 @@ import * as __runtime from "/src/framework/island/runtime-server";
 ```
 
 This transformation:
+
 - Wraps each exported component with `createIsland` for server rendering
 - Gets the client-side assets using Vite's `?assets=client` query
 - Maintains the original export names for transparent usage
@@ -55,6 +56,7 @@ export function createIsland(Component, exportName, assets) {
 ```
 
 This creates a custom element `<demo-island>` with:
+
 - Pre-rendered HTML content (for immediate display)
 - Client entry point URL (`assets.entry`)
 - Component export name and serialized props
@@ -68,6 +70,7 @@ customElements.define("demo-island", DemoIsland);
 ```
 
 The `DemoIsland` class (`runtime-client.ts`):
+
 - Imports the component via `entry` and `export-name` attributes
 - Renders the component with `props`
 

@@ -32,6 +32,7 @@ Every SSR framework needs to solve these fundamental problems:
 - **Asset Waterfalls**: Without knowing which assets a route needs, browsers must discover and load them sequentially, causing delays
 
 Currently, each framework implements its own solution. This fragmentation means:
+
 - Duplicated effort across frameworks
 - Inconsistent approaches and varying quality
 - Higher barrier to entry for new frameworks
@@ -40,6 +41,7 @@ Currently, each framework implements its own solution. This fragmentation means:
 ### How This API Helps
 
 The `?assets` import provides a standardized way to:
+
 1. Discover all CSS dependencies for a module to prevent FOUC
 2. Preload all JavaScript chunks needed by a route
 3. Access client build information from the server environment

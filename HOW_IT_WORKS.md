@@ -22,6 +22,7 @@ import ssrAssets from "./server.js?assets=ssr";
 ```
 
 The implementation differs between dev and build modes:
+
 - **Dev mode**: Dynamic CSS collection via module graph traversal
 - **Build mode**: Static asset manifest generated during build
 
@@ -48,7 +49,7 @@ The `fullstack:assets-query` plugin intercepts `?assets` imports:
 
 1. **Server environments**: Generates code based on query value:
    - `?assets=client` → Single environment import
-   - `?assets=ssr` → Single environment import  
+   - `?assets=ssr` → Single environment import
    - `?assets` → Merged client + current environment
 
 2. **Client environment**: Returns empty assets (client doesn't need this info)
@@ -67,6 +68,7 @@ When you import `page.js?assets`, the plugin resolves it to a virtual module tha
 This core function has different behavior in dev vs build:
 
 **Dev Mode:**
+
 ```js
 {
   entry: "/src/entry.client.tsx",  // Only for client environment
@@ -103,10 +105,11 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
 ### Build Process Flow
 
 1. **Tracking Phase** (during server build):
+
    ```js
    // Server code references client assets
    import clientAssets from "./entry.client.js?assets=client";
-   
+
    // Plugin tracks this in importAssetsMetaMap:
    importAssetsMetaMap["client"]["/entry.client.js"] = {
      id: "/entry.client.js",
@@ -118,6 +121,7 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
 
 2. **Dynamic Entry Injection** (`buildStart` hook):
    - When building the client environment, the plugin emits tracked modules as entry chunks:
+
    ```js
    if (environment.name === "client") {
      for (const meta of importAssetsMetaMap["client"]) {
@@ -130,6 +134,7 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
 
 3. **Dependency Collection** (`buildApp` hook):
    - After all environments are built, collect dependencies for each tracked module:
+
    ```js
    function collectAssetDeps(bundle) {
      // For each chunk, recursively collect:
@@ -140,6 +145,7 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
    ```
 
 4. **Manifest Generation**:
+
    ```js
    // __fullstack_assets_manifest.js
    export default {
@@ -180,6 +186,7 @@ export default __assets_manifest["ssr"]["page.js"];
 ```
 
 During `renderChunk`, the plugin rewrites the import to a relative path:
+
 ```js
 "virtual:fullstack/assets-manifest" → "./__fullstack_assets_manifest.js"
 ```
@@ -200,7 +207,7 @@ The plugin works by:
 
 1. **Query import system**: Providing `?assets` query imports that resolve to virtual modules
 2. **Dev mode**: Dynamically collecting CSS via module graph traversal at request time
-3. **Build mode**: 
+3. **Build mode**:
    - Tracking asset imports during server build
    - Dynamically injecting client entries
    - Generating a static manifest after all environments are built
