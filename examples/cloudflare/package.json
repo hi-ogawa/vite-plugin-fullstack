@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.13.9",
-    "@hiogawa/vite-plugin-fullstack": "workspace:*",
+    "@hiogawa/vite-plugin-fullstack": "latest",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react-swc": "latest",
