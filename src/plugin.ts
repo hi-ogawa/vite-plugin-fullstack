@@ -532,8 +532,9 @@ export default __assets_runtime.mergeAssets(${codes.join(", ")});
       // context:
       // - https://github.com/hi-ogawa/vite-plugins/issues/1233
       // - https://github.com/vitejs/vite-plugin-react/pull/847
+      // TODO: "rsc" environment doesn't exist in any examples. Consider removing this or updating the condition.
       hotUpdate(ctx) {
-        if (this.environment.name !== "client") {
+        if (this.environment.name === "rsc") {
           const mods = collectModuleDependents(ctx.modules);
           for (const mod of mods) {
             if (mod.id) {
