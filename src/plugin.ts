@@ -377,7 +377,7 @@ export function assetsPlugin(pluginOpts?: FullstackPluginOptions): Plugin[] {
         async handler(id) {
           if (id === "\0virtual:fullstack/runtime") {
             return fs.readFileSync(
-              path.join(import.meta.dirname, "runtime.js"),
+              path.join(import.meta.dirname, "runtime.mjs"),
               "utf-8",
             );
           }
