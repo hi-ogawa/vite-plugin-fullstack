@@ -1,6 +1,7 @@
 packages:
   - examples/*
 shellEmulator: true
+linkWorkspacePackages: true
 overrides:
   vite: $vite
   react: ^19.1.0
