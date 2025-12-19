@@ -3,11 +3,5 @@
   "extends": ["config:recommended", "schedule:weekly", "group:allNonMajor"],
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
-  "packageRules": [
-    {
-      "matchDepTypes": ["action"],
-      "matchPackageNames": ["!actions/{/,}**", "!github/{/,}**"],
-      "pinDigests": true
-    }
-  ]
+  "packageRules": []
 }
