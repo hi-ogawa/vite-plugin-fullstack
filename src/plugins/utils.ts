@@ -43,7 +43,7 @@ export function createVirtualPlugin(
 ): Plugin {
   name = "virtual:" + name;
   return {
-    name: `rsc:virtual-${name}`,
+    name: `fullstack:virtual-${name}`,
     resolveId: {
       handler(source, _importer, _options) {
         return source === name ? "\0" + name : undefined;
@@ -77,7 +77,7 @@ export function getEntrySource(
       !Array.isArray(input) &&
       name in input &&
       typeof input[name] === "string",
-    `[vite-rsc:getEntrySource] expected 'build.rollupOptions.input' to be an object with a '${name}' property that is a string, but got ${JSON.stringify(input)}`,
+    `[vite-fullstack:getEntrySource] expected 'build.rollupOptions.input' to be an object with a '${name}' property that is a string, but got ${JSON.stringify(input)}`,
   );
   return input[name];
 }

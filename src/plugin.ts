@@ -533,7 +533,7 @@ export default __assets_runtime.mergeAssets(${codes.join(", ")});
       // - https://github.com/hi-ogawa/vite-plugins/issues/1233
       // - https://github.com/vitejs/vite-plugin-react/pull/847
       hotUpdate(ctx) {
-        if (this.environment.name === "rsc") {
+        if (this.environment.name !== "client") {
           const mods = collectModuleDependents(ctx.modules);
           for (const mod of mods) {
             if (mod.id) {
