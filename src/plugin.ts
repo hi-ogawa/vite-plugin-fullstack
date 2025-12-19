@@ -425,12 +425,12 @@ export function assetsPlugin(pluginOpts?: FullstackPluginOptions): Plugin[] {
       writeBundle(_options, bundle) {
         bundleMap[this.environment.name] = bundle;
       },
-      buildStart() {
-        // dynamically add client entry during build
-        if (
-          this.environment.mode == "build" &&
-          this.environment.name === "client"
-        ) {
+      buildStart: {
+        filter(environment) {
+          return environment.mode === "build" && environment.name === "client";
+        },
+        handler() {
+          // dynamically add client entry during build
           const metas = importAssetsMetaMap["client"];
           if (metas) {
             for (const meta of Object.values(importAssetsMetaMap["client"]!)) {
@@ -443,7 +443,7 @@ export function assetsPlugin(pluginOpts?: FullstackPluginOptions): Plugin[] {
               }
             }
           }
-        }
+        },
       },
       buildApp: {
         order: "pre",
@@ -532,8 +532,11 @@ export default __assets_runtime.mergeAssets(${codes.join(", ")});
       // context:
       // - https://github.com/hi-ogawa/vite-plugins/issues/1233
       // - https://github.com/vitejs/vite-plugin-react/pull/847
-      hotUpdate(ctx) {
-        if (this.environment.name === "rsc") {
+      hotUpdate: {
+        filter(environment) {
+          return environment.name === "rsc";
+        },
+        handler(ctx) {
           const mods = collectModuleDependents(ctx.modules);
           for (const mod of mods) {
             if (mod.id) {
@@ -547,7 +550,7 @@ export default __assets_runtime.mergeAssets(${codes.join(", ")});
               }
             }
           }
-        }
+        },
       },
     },
     // ensure at least one client build input to prevent Vite
@@ -574,13 +577,17 @@ export default __assets_runtime.mergeAssets(${codes.join(", ")});
           }
         },
       },
-      generateBundle(_optoins, bundle) {
-        if (this.environment.name !== "client") return;
-        for (const [k, v] of Object.entries(bundle)) {
-          if (v.type === "chunk" && v.name === "__fallback") {
-            delete bundle[k];
+      generateBundle: {
+        filter(environment) {
+          return environment.name === "client";
+        },
+        handler(_options, bundle) {
+          for (const [k, v] of Object.entries(bundle)) {
+            if (v.type === "chunk" && v.name === "__fallback") {
+              delete bundle[k];
+            }
           }
-        }
+        },
       },
     },
     patchViteClientPlugin(),
@@ -832,13 +839,11 @@ function patchCssLinkSelfAccept(): Plugin {
     apply: "serve",
     transform: {
       order: "post",
+      filter(environment) {
+        return environment.name === "client" && environment.mode === "dev";
+      },
       handler(_code, id, _options) {
-        if (
-          this.environment.name === "client" &&
-          this.environment.mode === "dev" &&
-          isCSSRequest(id) &&
-          directRequestRE.test(id)
-        ) {
+        if (isCSSRequest(id) && directRequestRE.test(id)) {
           const mod = this.environment.moduleGraph.getModuleById(id);
           if (mod && !mod.isSelfAccepting) {
             mod.isSelfAccepting = true;
