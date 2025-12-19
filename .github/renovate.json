@@ -3,6 +3,7 @@
   "extends": ["config:recommended", "schedule:weekly", "group:allNonMajor"],
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
+  "ignorePaths": ["**/node_modules/**"],
   "packageRules": [
     {
       "matchDepTypes": ["peerDependencies"],
