@@ -1,4 +1,3 @@
-
 ## TODO
 
 ### MVP
@@ -39,7 +38,6 @@
   - vue router
 - test it on ecosystem framework
   - `fresh` (server css)
-
 
 WIP
 
@@ -172,7 +170,6 @@ import.meta.vite.assets({ import: "", clientOnly: true })
 - doesn't this handle only initial render (ssr)? how about preloading assets on client side navigation?
   - This is not needed since Vite optimizes client dynamic import. https://vite.dev/guide/features.html#async-chunk-loading-optimization
 
-
 ## Initial assumptions
 
 - environments: client, ssr
@@ -191,7 +188,7 @@ const routes = {
 }
 ```
 
-- entry.server.js 
+- entry.server.js
 
 ```js
 import.meta.vite.entryAssets("/entry.client.js")

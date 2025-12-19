@@ -2,11 +2,15 @@
   "name": "@hiogawa/vite-plugin-fullstack",
   "version": "0.0.10",
   "homepage": "https://github.com/hi-ogawa/vite-plugin-fullstack",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hi-ogawa/vite-plugin-fullstack.git"
   },
-  "license": "MIT",
+  "files": [
+    "dist",
+    "types"
+  ],
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
@@ -14,15 +18,14 @@
     ".": "./dist/index.js",
     "./*": "./dist/*.js"
   },
-  "files": ["dist", "types"],
   "scripts": {
     "dev": "tsdown --sourcemap --watch src",
     "build": "tsdown",
     "prepack": "tsdown --clean",
     "test-e2e": "playwright test",
     "tsc": "tsc -b tsconfig.json e2e/tsconfig.json examples/*/tsconfig.json",
-    "lint": "biome check --write .",
-    "lint-check": "biome check .",
+    "lint": "oxfmt",
+    "lint-check": "oxfmt --check",
     "release": "bumpp"
   },
   "dependencies": {
@@ -31,11 +34,7 @@
     "srvx": "^0.8.7",
     "strip-literal": "^3.1.0"
   },
-  "peerDependencies": {
-    "vite": "^7.0.0"
-  },
   "devDependencies": {
-    "@biomejs/biome": "1.9.5-nightly.81fdedb",
     "@playwright/test": "^1.53.1",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^22.15.34",
@@ -43,6 +42,7 @@
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^5.1.0",
     "bumpp": "^10.3.2",
+    "oxfmt": "^0.19.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tinyexec": "^1.0.1",
@@ -52,10 +52,13 @@
     "vite": "^7.1.5",
     "wrangler": "^4.41.0"
   },
-  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
+  "peerDependencies": {
+    "vite": "^7.0.0"
+  },
   "volta": {
     "node": "22.19.0"
   },
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
   "pnpm": {
     "overrides": {
       "vite": "$vite",

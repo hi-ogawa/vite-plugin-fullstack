@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "experimentalSortPackageJson": true,
+  "experimentalSortImports": {
+    "newlinesBetween": false,
+    "partitionByNewline": true,
+    "groups": [["builtin"], ["external"]],
+  },
+}
