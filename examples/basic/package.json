@@ -15,7 +15,7 @@
     "@vitejs/plugin-react": "latest",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "srvx": "^0.8.7",
+    "srvx": "^0.9.8",
     "vite": "^7.1.5"
   }
 }

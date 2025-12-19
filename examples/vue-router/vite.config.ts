@@ -4,7 +4,7 @@ import { Readable } from "node:stream";
 import { pathToFileURL } from "node:url";
 import fullstack from "@hiogawa/vite-plugin-fullstack";
 import vue from "@vitejs/plugin-vue";
-import { type Plugin, type ResolvedConfig, defineConfig } from "vite";
+import { defineConfig, type Plugin, type ResolvedConfig } from "vite";
 import devtoolsJson from "vite-plugin-devtools-json";
 
 export default defineConfig((_env) => ({

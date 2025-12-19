@@ -1,10 +1,10 @@
 import assert from "node:assert";
 import { createHash } from "node:crypto";
 import {
+  normalizePath,
   type Plugin,
   type ResolvedConfig,
   type Rollup,
-  normalizePath,
 } from "vite";
 
 export function sortObject<T extends object>(o: T) {

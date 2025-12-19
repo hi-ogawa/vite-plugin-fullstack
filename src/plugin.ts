@@ -8,14 +8,14 @@ import { stripLiteral } from "strip-literal";
 import {
   DevEnvironment,
   type EnvironmentModuleNode,
+  isCSSRequest,
+  isRunnableDevEnvironment,
+  normalizePath,
   type Plugin,
   type ResolvedConfig,
   type Rollup,
   type ViteBuilder,
   type ViteDevServer,
-  isCSSRequest,
-  isRunnableDevEnvironment,
-  normalizePath,
 } from "vite";
 import type {
   ImportAssetsOptions,

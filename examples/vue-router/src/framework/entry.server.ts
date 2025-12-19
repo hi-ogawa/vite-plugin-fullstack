@@ -1,7 +1,7 @@
 import { createHead, transformHtmlTemplate } from "unhead/server";
 import { createSSRApp } from "vue";
-import { RouterView, createMemoryHistory, createRouter } from "vue-router";
 import { renderToString } from "vue/server-renderer";
+import { createMemoryHistory, createRouter, RouterView } from "vue-router";
 import { routes } from "../routes";
 import clientEntry from "./entry.client.ts?assets=client";
 

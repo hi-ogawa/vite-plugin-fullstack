@@ -1,1 +1,1 @@
-export { default, serverHandlerPlugin, assetsPlugin } from "./plugin.ts";
+export { assetsPlugin, default, serverHandlerPlugin } from "./plugin.ts";

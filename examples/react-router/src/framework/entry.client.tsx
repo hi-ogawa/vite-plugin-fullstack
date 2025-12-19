@@ -1,7 +1,7 @@
 import "@vitejs/plugin-react/preamble";
 import { StrictMode, startTransition } from "react";
 import { hydrateRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter, matchRoutes } from "react-router";
+import { createBrowserRouter, matchRoutes, RouterProvider } from "react-router";
 import { routes } from "./routes";
 
 declare const __staticRouterHydrationData: any;

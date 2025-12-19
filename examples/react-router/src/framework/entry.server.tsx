@@ -1,8 +1,8 @@
 import { renderToReadableStream } from "react-dom/server.edge";
 import {
-  StaticRouterProvider,
   createStaticHandler,
   createStaticRouter,
+  StaticRouterProvider,
 } from "react-router";
 import clientEntry from "./entry.client.tsx?assets=client";
 import { routes } from "./routes";

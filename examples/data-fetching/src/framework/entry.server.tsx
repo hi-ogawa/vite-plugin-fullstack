@@ -6,9 +6,9 @@ import { __rpc_router__ } from "../rpc";
 import clientAssets from "./entry.client.tsx?assets=client";
 import "./rpc.server";
 import {
+  dehydrate,
   QueryClient,
   QueryClientProvider,
-  dehydrate,
 } from "@tanstack/react-query";
 
 const rpcHandler = new RPCHandler(__rpc_router__);

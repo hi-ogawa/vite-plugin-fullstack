@@ -11,16 +11,16 @@ export default defineConfig({
   hooks: {
     async "build:done"() {
       fs.appendFileSync(
-        "./dist/index.d.ts",
+        "./dist/index.d.mts",
         `\nimport type {} from "@hiogawa/vite-plugin-fullstack/types";\n`,
       );
       // inline file content as raw string to allow downstream package `nitro` to bundle this plugin package
-      let pluginBundle = await readFile("dist/index.js", "utf-8");
+      let pluginBundle = await readFile("dist/index.mjs", "utf-8");
       await writeFile(
-        "dist/index.js",
+        "dist/index.mjs",
         pluginBundle.replace(
-          `fs.readFileSync(path.join(import.meta.dirname, "runtime.js"), "utf-8")`,
-          `\`${await readFile("dist/runtime.js", "utf-8")}\``,
+          `fs.readFileSync(path.join(import.meta.dirname, "runtime.mjs"), "utf-8")`,
+          `\`${await readFile("dist/runtime.mjs", "utf-8")}\``,
         ),
       );
     },
