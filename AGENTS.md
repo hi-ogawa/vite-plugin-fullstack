@@ -74,6 +74,7 @@ pnpm lint-check       # Check without modifications
    - `react-router/` - React Router integration
    - `vue-router/` - Vue Router + SSG
    - `island/` - Preact Island architecture
+   - `remix/` - Remix integration
    - `data-fetching/` - RPC-style data fetching
    - `cloudflare/` - Cloudflare Workers deployment
 
