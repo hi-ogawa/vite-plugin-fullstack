@@ -331,10 +331,8 @@ export function assetsPlugin(pluginOpts?: AssetsPluginOptions): Plugin[] {
         filter: { id: /^\0virtual:fullstack\// },
         async handler(id) {
           if (id === "\0virtual:fullstack/runtime") {
-            return fs.readFileSync(
-              path.join(import.meta.dirname, "runtime.js"),
-              "utf-8",
-            );
+            const runtime = await import("./runtime");
+            return `export const mergeAssets = ${runtime.mergeAssets.toString()};`;
           }
 
           const parsed = parseAssetsVirtual(id);
