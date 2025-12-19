@@ -8,14 +8,14 @@
     "preview": "wrangler dev"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.13.9",
+    "@cloudflare/vite-plugin": "^1.19.0",
     "@hiogawa/vite-plugin-fullstack": "latest",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "vite": "^7.3.0",
-    "wrangler": "^4.41.0"
+    "wrangler": "^4.56.0"
   }
 }

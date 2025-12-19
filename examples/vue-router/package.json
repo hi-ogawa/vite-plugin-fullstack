@@ -11,13 +11,13 @@
   },
   "devDependencies": {
     "@hiogawa/vite-plugin-fullstack": "latest",
-    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue": "^6.0.3",
     "sirv-cli": "^3.0.1",
-    "srvx": "^0.8.7",
-    "unhead": "^2.0.17",
+    "srvx": "^0.9.8",
+    "unhead": "^2.0.19",
     "vite": "^7.3.0",
     "vite-plugin-devtools-json": "^1.0.0",
-    "vue": "^3.5.22",
-    "vue-router": "^4.5.1"
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4"
   }
 }
