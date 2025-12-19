@@ -37,8 +37,8 @@ importers:
         specifier: ^2.0.5
         version: 2.0.8
       '@types/node':
-        specifier: ^22.15.34
-        version: 22.19.3
+        specifier: ^24.10.4
+        version: 24.10.4
       bumpp:
         specifier: ^10.3.2
         version: 10.3.2
@@ -59,7 +59,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       wrangler:
         specifier: ^4.41.0
         version: 4.55.0
@@ -77,7 +77,7 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react':
         specifier: ^5.1.0
-        version: 5.1.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       react:
         specifier: ^19.1.0
         version: 19.2.3
@@ -89,13 +89,13 @@ importers:
         version: 0.8.16
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
 
   examples/cloudflare:
     devDependencies:
       '@cloudflare/vite-plugin':
         specifier: ^1.13.9
-        version: 1.18.0(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(workerd@1.20251213.0)(wrangler@4.55.0)
+        version: 1.18.0(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(workerd@1.20251213.0)(wrangler@4.55.0)
       '@hiogawa/vite-plugin-fullstack':
         specifier: latest
         version: link:../..
@@ -107,7 +107,7 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react-swc':
         specifier: latest
-        version: 4.2.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 4.2.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       react:
         specifier: ^19.1.0
         version: 19.2.3
@@ -116,7 +116,7 @@ importers:
         version: 19.2.3(react@19.2.3)
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       wrangler:
         specifier: ^4.41.0
         version: 4.55.0
@@ -146,7 +146,7 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react':
         specifier: ^5.1.0
-        version: 5.1.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       react:
         specifier: ^19.1.0
         version: 19.2.3
@@ -161,7 +161,7 @@ importers:
         version: 0.8.16
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       zod:
         specifier: ^4.1.12
         version: 4.2.1
@@ -173,7 +173,7 @@ importers:
         version: link:../..
       '@preact/preset-vite':
         specifier: ^2.10.2
-        version: 2.10.2(@babel/core@7.28.5)(preact@10.28.0)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 2.10.2(@babel/core@7.28.5)(preact@10.28.0)(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       '@preact/signals':
         specifier: ^2.3.2
         version: 2.5.1(preact@10.28.0)
@@ -191,7 +191,7 @@ importers:
         version: 0.8.16
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
 
   examples/react-router:
     devDependencies:
@@ -206,7 +206,7 @@ importers:
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react':
         specifier: ^5.1.0
-        version: 5.1.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       react:
         specifier: ^19.1.0
         version: 19.2.3
@@ -221,10 +221,10 @@ importers:
         version: 0.8.16
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       vite-plugin-devtools-json:
         specifier: ^1.0.0
-        version: 1.0.0(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 1.0.0(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
 
   examples/remix:
     devDependencies:
@@ -245,7 +245,7 @@ importers:
         version: 0.8.16
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
 
   examples/vue-router:
     devDependencies:
@@ -254,7 +254,7 @@ importers:
         version: link:../..
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
-        version: 6.0.3(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
+        version: 6.0.3(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))
       sirv-cli:
         specifier: ^3.0.1
         version: 3.0.1
@@ -266,10 +266,10 @@ importers:
         version: 2.0.19
       vite:
         specifier: ^7.1.5
-        version: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+        version: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       vite-plugin-devtools-json:
         specifier: ^1.0.0
-        version: 1.0.0(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+        version: 1.0.0(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       vue:
         specifier: ^3.5.22
         version: 3.5.25(typescript@5.9.3)
@@ -1352,8 +1352,8 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
-  '@types/node@22.19.3':
-    resolution: {integrity: sha512-1N9SBnWYOJTrNZCdh/yJE+t910Y128BoyY+zBLWhL3r0TYzlTmFdXrPwHL9DyFZmlEXNQQolTZh3KHV31QDhyA==}
+  '@types/node@24.10.4':
+    resolution: {integrity: sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -2017,8 +2017,8 @@ packages:
   unconfig@7.4.2:
     resolution: {integrity: sha512-nrMlWRQ1xdTjSnSUqvYqJzbTBFugoqHobQj58B2bc8qxHKBBHMNNsWQFP3Cd3/JZK907voM2geYPWqD4VK3MPQ==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+  undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   undici@7.14.0:
     resolution: {integrity: sha512-Vqs8HTzjpQXZeXdpsfChQTlafcMQaaIwnGwLam1wudSSjlJeQ3bw1j+TLPePgrCnCpUXx7Ba5Pdpf5OBih62NQ==}
@@ -2301,7 +2301,7 @@ snapshots:
     optionalDependencies:
       workerd: 1.20251213.0
 
-  '@cloudflare/vite-plugin@1.18.0(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(workerd@1.20251213.0)(wrangler@4.55.0)':
+  '@cloudflare/vite-plugin@1.18.0(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(workerd@1.20251213.0)(wrangler@4.55.0)':
     dependencies:
       '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251213.0)
       '@remix-run/node-fetch-server': 0.8.1
@@ -2311,7 +2311,7 @@ snapshots:
       picocolors: 1.1.1
       tinyglobby: 0.2.15
       unenv: 2.0.0-rc.24
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       wrangler: 4.55.0
       ws: 8.18.0
     transitivePeerDependencies:
@@ -2757,18 +2757,18 @@ snapshots:
 
   '@poppinss/exception@1.2.3': {}
 
-  '@preact/preset-vite@2.10.2(@babel/core@7.28.5)(preact@10.28.0)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@preact/preset-vite@2.10.2(@babel/core@7.28.5)(preact@10.28.0)(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-react-jsx-development': 7.27.1(@babel/core@7.28.5)
-      '@prefresh/vite': 2.4.11(preact@10.28.0)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      '@prefresh/vite': 2.4.11(preact@10.28.0)(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       '@rollup/pluginutils': 4.2.1
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.28.5)
       debug: 4.4.3
       picocolors: 1.1.1
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
-      vite-prerender-plugin: 0.5.12(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
+      vite-prerender-plugin: 0.5.12(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
     transitivePeerDependencies:
       - preact
       - supports-color
@@ -2788,7 +2788,7 @@ snapshots:
 
   '@prefresh/utils@1.2.1': {}
 
-  '@prefresh/vite@2.4.11(preact@10.28.0)(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@prefresh/vite@2.4.11(preact@10.28.0)(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.28.5
       '@prefresh/babel-plugin': 0.5.2
@@ -2796,7 +2796,7 @@ snapshots:
       '@prefresh/utils': 1.2.1
       '@rollup/pluginutils': 4.2.1
       preact: 10.28.0
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -3027,9 +3027,9 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/node@22.19.3':
+  '@types/node@24.10.4':
     dependencies:
-      undici-types: 6.21.0
+      undici-types: 7.16.0
 
   '@types/react-dom@19.2.3(@types/react@19.2.7)':
     dependencies:
@@ -3039,15 +3039,15 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@vitejs/plugin-react-swc@4.2.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@vitejs/plugin-react-swc@4.2.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.47
       '@swc/core': 1.15.6
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react@5.1.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))':
+  '@vitejs/plugin-react@5.1.2(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.5)
@@ -3055,14 +3055,14 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.53
       '@types/babel__core': 7.20.5
       react-refresh: 0.18.0
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@6.0.3(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.3(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.53
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
       vue: 3.5.25(typescript@5.9.3)
 
   '@vue/compiler-core@3.5.25':
@@ -3756,7 +3756,7 @@ snapshots:
       quansync: 1.0.0
       unconfig-core: 7.4.2
 
-  undici-types@6.21.0: {}
+  undici-types@7.16.0: {}
 
   undici@7.14.0: {}
 
@@ -3776,12 +3776,12 @@ snapshots:
 
   uuid@11.1.0: {}
 
-  vite-plugin-devtools-json@1.0.0(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)):
+  vite-plugin-devtools-json@1.0.0(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)):
     dependencies:
       uuid: 11.1.0
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
 
-  vite-prerender-plugin@0.5.12(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)):
+  vite-prerender-plugin@0.5.12(vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)):
     dependencies:
       kolorist: 1.8.0
       magic-string: 0.30.21
@@ -3789,9 +3789,9 @@ snapshots:
       simple-code-frame: 1.3.0
       source-map: 0.7.6
       stack-trace: 1.0.0-pre2
-      vite: 7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2)
+      vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
 
-  vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2):
+  vite@7.3.0(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3800,7 +3800,7 @@ snapshots:
       rollup: 4.53.5
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 22.19.3
+      '@types/node': 24.10.4
       fsevents: 2.3.3
       jiti: 2.6.1
       yaml: 2.8.2
