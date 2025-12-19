@@ -8,7 +8,6 @@ overrides:
   vite: ^7.1.5
   react: ^19.1.0
   react-dom: ^19.1.0
-  '@playwright/test': ^1.53.1
   '@types/react': ^19.1.8
   '@types/react-dom': ^19.1.6
   '@vitejs/plugin-react': ^5.1.0
@@ -40,27 +39,12 @@ importers:
       '@types/node':
         specifier: ^22.15.34
         version: 22.19.3
-      '@types/react':
-        specifier: ^19.1.8
-        version: 19.2.7
-      '@types/react-dom':
-        specifier: ^19.1.6
-        version: 19.2.3(@types/react@19.2.7)
-      '@vitejs/plugin-react':
-        specifier: ^5.1.0
-        version: 5.1.2(vite@7.3.0(@types/node@22.19.3)(jiti@2.6.1)(yaml@2.8.2))
       bumpp:
         specifier: ^10.3.2
         version: 10.3.2
       oxfmt:
         specifier: ^0.19.0
         version: 0.19.0
-      react:
-        specifier: ^19.1.0
-        version: 19.2.3
-      react-dom:
-        specifier: ^19.1.0
-        version: 19.2.3(react@19.2.3)
       tinyexec:
         specifier: ^1.0.1
         version: 1.0.2
