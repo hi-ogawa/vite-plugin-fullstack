@@ -16,14 +16,20 @@ export default defineConfig({
         `\nimport type {} from "@hiogawa/vite-plugin-fullstack/types";\n`,
       );
       // inline file content as raw string to allow downstream package `nitro` to bundle this plugin package
-      let pluginBundle = await readFile("dist/index.js", "utf-8");
-      await writeFile(
-        "dist/index.js",
-        pluginBundle.replace(
-          `fs.readFileSync(path.join(import.meta.dirname, "runtime.js"), "utf-8")`,
-          `\`${await readFile("dist/runtime.js", "utf-8")}\``,
-        ),
-      );
+      const pluginChunk = fs
+        .readdirSync("dist")
+        .find((f) => f.startsWith("plugin-") && f.endsWith(".js"));
+      if (pluginChunk) {
+        const pluginPath = `dist/${pluginChunk}`;
+        let pluginBundle = await readFile(pluginPath, "utf-8");
+        await writeFile(
+          pluginPath,
+          pluginBundle.replace(
+            `fs.readFileSync(path.join(import.meta.dirname, "runtime.js"), "utf-8")`,
+            `\`${await readFile("dist/runtime.js", "utf-8")}\``,
+          ),
+        );
+      }
     },
   },
 }) as any;
