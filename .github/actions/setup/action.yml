@@ -19,6 +19,7 @@ runs:
 
     - run: pnpm build
       shell: bash
+      if: ${{ inputs.build == 'true' }}
 
     - run: npx playwright install chromium
       shell: bash
