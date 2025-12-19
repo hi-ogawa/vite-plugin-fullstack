@@ -18,4 +18,6 @@ jobs:
       - run: pnpm dlx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pnpm publish --access public --no-git-checks
+      - run: |
+          releaseTag=$([[ $GITHUB_REF_NAME =~ beta ]] && echo "beta" || echo "latest")
+          pnpm publish --access public --no-git-checks --tag $releaseTag
