@@ -1,5 +1,9 @@
 name: setup
 inputs:
+  build:
+    description: build
+    required: false
+    default: "true"
   playwright:
     description: install playwright
     required: false
