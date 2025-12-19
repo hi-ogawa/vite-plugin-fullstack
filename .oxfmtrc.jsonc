@@ -5,6 +5,6 @@
   "experimentalSortImports": {
     "newlinesBetween": false,
     "partitionByNewline": true,
-    "groups": ["builtin", "external"],
+    "groups": [["builtin"], ["external"]],
   },
 }
