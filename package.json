@@ -23,7 +23,7 @@
     "tsc": "tsc -b tsconfig.json e2e/tsconfig.json examples/*/tsconfig.json",
     "lint": "biome check --write .",
     "lint-check": "biome check .",
-    "changelog": "pnpm dlx @hiogawa/changelog --repo https://github.com/hi-ogawa/vite-plugin-fullstack"
+    "release": "bumpp"
   },
   "dependencies": {
     "@rolldown/pluginutils": "1.0.0-beta.55",
@@ -42,6 +42,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^5.1.0",
+    "bumpp": "^10.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tinyexec": "^1.0.1",
