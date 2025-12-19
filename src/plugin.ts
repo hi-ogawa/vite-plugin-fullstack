@@ -4,7 +4,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { exactRegex } from "@rolldown/pluginutils";
 import MagicString from "magic-string";
-import { toNodeHandler } from "srvx/node";
 import { stripLiteral } from "strip-literal";
 import {
   DevEnvironment,
@@ -15,7 +14,6 @@ import {
   type ViteBuilder,
   type ViteDevServer,
   isCSSRequest,
-  isRunnableDevEnvironment,
   normalizePath,
 } from "vite";
 import type {
@@ -29,7 +27,6 @@ import {
 } from "./plugins/shared";
 import {
   createVirtualPlugin,
-  getEntrySource,
   hashString,
   normalizeRelativePath,
 } from "./plugins/utils";
@@ -39,11 +36,14 @@ import {
   normalizeViteImportAnalysisUrl,
 } from "./plugins/vite-utils";
 
-type FullstackPluginOptions = {
-  /**
-   * @default true
-   */
-  serverHandler?: boolean;
+type ImportAssetsMeta = {
+  id: string;
+  key: string;
+  importerEnvironment: string;
+  isEntry: boolean;
+};
+
+export type AssetsPluginOptions = {
   /**
    * @default ["ssr"]
    */
@@ -63,54 +63,7 @@ type FullstackPluginOptions = {
   };
 };
 
-type ImportAssetsMeta = {
-  id: string;
-  key: string;
-  importerEnvironment: string;
-  isEntry: boolean;
-};
-
-export default function vitePluginFullstack(
-  pluginOpts?: FullstackPluginOptions,
-): Plugin[] {
-  return [...serverHandlerPlugin(pluginOpts), ...assetsPlugin(pluginOpts)];
-}
-
-export function serverHandlerPlugin(
-  pluginOpts?: FullstackPluginOptions,
-): Plugin[] {
-  return [
-    {
-      name: "fullstack:server-handler",
-      apply: () => pluginOpts?.serverHandler !== false,
-      config(userConfig, _env) {
-        return {
-          appType: userConfig.appType ?? "custom",
-        };
-      },
-      configureServer(server) {
-        const name = (pluginOpts?.serverEnvironments ?? ["ssr"])[0]!;
-        const environment = server.environments[name]!;
-        assert(isRunnableDevEnvironment(environment));
-        const runner = environment.runner;
-        return () => {
-          server.middlewares.use(async (req, res, next) => {
-            try {
-              const source = getEntrySource(environment.config);
-              const mod = await runner.import(source);
-              req.url = req.originalUrl ?? req.url;
-              await toNodeHandler(mod.default.fetch)(req, res);
-            } catch (e) {
-              next(e);
-            }
-          });
-        };
-      },
-    },
-  ];
-}
-
-export function assetsPlugin(pluginOpts?: FullstackPluginOptions): Plugin[] {
+export function assetsPlugin(pluginOpts?: AssetsPluginOptions): Plugin[] {
   let server: ViteDevServer;
   let resolvedConfig: ResolvedConfig;
   const importAssetsMetaMap: {

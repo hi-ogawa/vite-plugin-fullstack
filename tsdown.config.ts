@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { defineConfig } from "tsdown";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/runtime.ts"],
+  entry: ["src/index.ts", "src/assets.ts", "src/runtime.ts"],
   format: ["esm"],
   fixedExtension: false,
   dts: {
