@@ -8,7 +8,7 @@
     "preview": "srvx --prod -s ../client dist/ssr/index.js"
   },
   "devDependencies": {
-    "@hiogawa/vite-plugin-fullstack": "workspace:*",
+    "@hiogawa/vite-plugin-fullstack": "latest",
     "@preact/preset-vite": "^2.10.2",
     "@preact/signals": "^2.3.2",
     "magic-string": "^0.30.19",
