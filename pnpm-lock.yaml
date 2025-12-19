@@ -31,9 +31,6 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
     devDependencies:
-      '@biomejs/biome':
-        specifier: 1.9.5-nightly.81fdedb
-        version: 1.9.5-nightly.81fdedb
       '@playwright/test':
         specifier: ^1.53.1
         version: 1.57.0
@@ -402,59 +399,6 @@ packages:
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
-
-  '@biomejs/biome@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-pKBxq0lT1SXPTN04i+52Zh3ncD84YTv3HKoz2CUusS+Eida6b+0Kb2dgPKcfC15z9IxtVx2EIShhpjPtwPYAXw==}
-    engines: {node: '>=14.21.3'}
-    hasBin: true
-
-  '@biomejs/cli-darwin-arm64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-5P5Bl2EalSCIVaspoZk+J5yNS4UFyRE7AQT7bOaugJVSxiSRXFZvj5qNc67hLK0crt7SOBxK6AmHv01D6v3vPQ==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@biomejs/cli-darwin-x64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-5dyYFDWoshBCLFtxdOuOhPRH20X0ND9djcx2IYhI5KEWyyaBxig3DK+ktCiApOYbq9Vm4VaUosUgdBxGXuXgsQ==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@biomejs/cli-linux-arm64-musl@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-E6TqGZILHE2iLkv++JswQqr02fhpaOy94V4GN2VL84+NnOMzFOsZk4KgAysQPs6U6vaorkdQNgrSSadTdEG8yg==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@biomejs/cli-linux-arm64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-umsZ1LDK20FEEi0CySpZJKfgf4CApJz/8/j8RSECYGMa7dBqVXWdpJu+2j6D/2lkrcSQYPJmFO0uTpvFd/9isw==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [linux]
-
-  '@biomejs/cli-linux-x64-musl@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-p9u8UDj6/ZcDTGDxOP+ryqQQBcwMcr1Ye09Bg06XOXiJVynizHJkpV3ZTmyOKsghMjTAkkrufXZcss49LVV0/w==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [linux]
-
-  '@biomejs/cli-linux-x64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-9vqY6AE8dfFB/QBmnnjHLL4bAhKxl1ttKK0yrza9oxr19ZYRC5zf4G95ie/V1k3wuzVnbh6D0kDhEkUaIwM9sQ==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [linux]
-
-  '@biomejs/cli-win32-arm64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-KersSrVxD1jw7INrOJ48bWdSX6UqC2peLkVQNERkGrGopqGgpv34clvZd28p3nfeBjTc3JjVEbWFrcjREA7Yeg==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@biomejs/cli-win32-x64@1.9.5-nightly.81fdedb':
-    resolution: {integrity: sha512-O7gWo2/V6zF8NhhtKm2sZdLpVfoAMGrVpWuhyKgHJjnOUvuiarUPQgG8pjaq6d3pNFNZrPDCl9cI2StiQjeDZA==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [win32]
 
   '@cloudflare/kv-asset-handler@0.4.1':
     resolution: {integrity: sha512-Nu8ahitGFFJztxUml9oD/DLb7Z28C8cd8F46IVQ7y5Btz575pvMY8AqZsXkX7Gds29eCKdMgIHjIvzskHgPSFg==}
@@ -2362,41 +2306,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
-
-  '@biomejs/biome@1.9.5-nightly.81fdedb':
-    optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-darwin-x64': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-linux-arm64': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-linux-arm64-musl': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-linux-x64': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-linux-x64-musl': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-win32-arm64': 1.9.5-nightly.81fdedb
-      '@biomejs/cli-win32-x64': 1.9.5-nightly.81fdedb
-
-  '@biomejs/cli-darwin-arm64@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-darwin-x64@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-linux-arm64-musl@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-linux-arm64@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-linux-x64-musl@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-linux-x64@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-win32-arm64@1.9.5-nightly.81fdedb':
-    optional: true
-
-  '@biomejs/cli-win32-x64@1.9.5-nightly.81fdedb':
-    optional: true
 
   '@cloudflare/kv-asset-handler@0.4.1':
     dependencies:
