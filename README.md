@@ -2,9 +2,7 @@
 > This was a draft version of the prospoal, which is now available on [Vite discussion](https://github.com/vitejs/vite/discussions/20913).
 > Please leave a comment there if you have any feedback.
 
-# Proposal: Client assets metadata API for SSR
-
-This proposal introduces a new API that enables server code to access client runtime assets metadata required for server-side rendering in a framework agnostic way. This feature is currently prototyped in the package [`@hiogawa/vite-plugin-fullstack`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack) with [examples](#examples).
+This proposal introduces a new API that enables server code to access client runtime assets metadata required for server-side rendering in a framework agnostic way. This feature is currently prototyped in the package [`@hiogawa/vite-plugin-fullstack`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main) with examples listed below.
 
 ## Motivation
 
@@ -42,7 +40,7 @@ type Assets = {
 The goal of this API is to cover the following use cases in SSR applications:
 
 - **Server entry accessing client entry**: Enables the server to inject client-side assets during SSR
-  - This can also be used for implementing "Island Architecture" - see [`examples/island`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/island)
+  - This can also be used for implementing "Island Architecture" - see [`examples/island`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island)
 
 ```js
 // server.js - Server entry injecting client assets during SSR
@@ -68,7 +66,7 @@ export function renderHtml(content) {
 ```
 
 - **Universal routes accessing their assets**: Routes shared by CSR and SSR can retrieve their associated assets
-  - See [`examples/react-router`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/react-router) and [`examples/vue-router`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/vue-router) for detailed integrations
+  - See [`examples/react-router`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router) and [`examples/vue-router`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router) for detailed integrations
 
 ```js
 // routes.js - Router configuration with assets preloading
@@ -92,7 +90,7 @@ export const routes = [
 ```
 
 - **Server-only pages accessing CSS dependencies**: Server-rendered pages can retrieve their CSS assets
-  - See [`examples/island`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/island)
+  - See [`examples/island`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island)
 
 ```js
 // server.js - Server-side page with CSS dependencies
@@ -109,24 +107,19 @@ export function renderHtml() {
 }
 ```
 
-### Merging assets
+### Runtime Helpers
 
-Each `?assets` import provides a `merge` method to combine multiple assets objects into a single deduplicated assets object. This is useful for aggregating assets from multiple route components or modules.
-
-```js
-import route1Assets from "./pages/layout.js?assets";
-import route2Assets from "./pages/home.js?assets";
-
-const mergedAssets = route1Assets.merge(route2Assets);
-// Result: { js: [...], css: [...] } with deduplicated entries
-```
-
-Alternatively, the package exports `mergeAssets` utility from `@hiogawa/vite-plugin-fullstack/runtime`:
+The plugin provides a utility function `mergeAssets` to combine multiple assets objects into a single deduplicated assets object.
 
 ```js
 import { mergeAssets } from "@hiogawa/vite-plugin-fullstack/runtime";
 
+// Example: Merging assets from multiple route components
+const route1Assets = await import("./pages/layout.js?assets");
+const route2Assets = await import("./pages/home.js?assets");
+
 const mergedAssets = mergeAssets(route1Assets, route2Assets);
+// Result: { js: [...], css: [...] } with deduplicated entries
 ```
 
 ### Configuration
@@ -168,11 +161,10 @@ export default defineConfig({
   },
   builder: {
     async buildApp(builder) {
-      // The plugin requires "ssr -> client" build order to support dynamically adding client entries
+      // Currently, the plugin requires this specific build order
+      // to dynamically add client entries
       await builder.build(builder.environments["ssr"]!);
       await builder.build(builder.environments["client"]!);
-      // `writeAssetsManifest` is exposed under `builder` to allow flexible build pipeline
-      await builder.writeAssetsManifest()
     }
   }
 })
@@ -180,7 +172,7 @@ export default defineConfig({
 
 ### TypeScript Support
 
-TypeScript support for `?assets` imports is automatically enabled if `@hiogawa/vite-plugin-fullstack` is imported in the project. Additionally, the package provides `@hiogawa/vite-plugin-fullstack/types` to only enable ambient types, which can be referenced through `tsconfig.json`, for example:
+TypeScript support for `?assets` imports can be enabled by adding the following to your `tsconfig.json`:
 
 ```json
 {
@@ -192,20 +184,20 @@ TypeScript support for `?assets` imports is automatically enabled if `@hiogawa/v
 
 ## Examples
 
-| Example                                                                                                                     | Playground                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Basic](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/basic/)                              | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/basic)                               |
-| [React Router](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/react-router/)                | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/react-router)                        |
-| [Vue Router / SSG](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/vue-router/)              | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/vue-router)                          |
-| [Preact Island](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/island/)                     | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/island)                              |
-| [Remix 3](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/remix/)                            | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/remix)                               |
-| [Nitro](https://github.com/hi-ogawa/nitro-vite-examples/tree/10-02-feat_add_vue-router-ssr_example/examples/vue-router-ssr) | [stackblitz](https://stackblitz.com/github/hi-ogawa/nitro-vite-examples/tree/10-02-feat_add_vue-router-ssr_example/examples/vue-router-ssr) |
-| [Cloudflare](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/cloudflare/)                    | -                                                                                                                                           |
-| [Data Fetching](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/data-fetching/)              | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugins/tree/main/packages/fullstack/examples/data-fetching)                       |
+| Example                                                                                              | Playground                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Basic](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic/)                 | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic)                                         |
+| [React Router](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router/)   | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router)                                  |
+| [Vue Router / SSG](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router)                                    |
+| [Preact Island](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island/)        | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island)                                        |
+| [Remix 3](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix/)               | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix)                                         |
+| [Nitro](https://github.com/nitrojs/vite-examples/pull/5)                                             | [stackblitz](https://stackblitz.com/github/hi-ogawa/nitro-vite-examples/tree/10-02-feat_add_vue-router-ssr_example/examples/vue-router-ssr) |
+| [Cloudflare](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/cloudflare/)       | -                                                                                                                                           |
+| [Data Fetching](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching)                                 |
 
 ## How It Works
 
-For a detailed explanation of the plugin's internal architecture and implementation, see [HOW_IT_WORKS.md](./HOW_IT_WORKS.md).
+For a detailed explanation of the plugin's internal architecture and implementation, see [HOW_IT_WORKS.md](https://github.com/hi-ogawa/vite-plugin-fullstack/blob/main/HOW_IT_WORKS.md).
 
 ## Known limitations
 
@@ -213,6 +205,10 @@ For a detailed explanation of the plugin's internal architecture and implementat
   - Currently each CSS import is processed and built for each environment build, which can potentially cause inconsistency due to differing code splits, configuration, etc. This can cause duplicate CSS content loaded on client or break expected style processing.
 - `?assets=client` doesn't provide `css` during dev.
   - Due to unbundled dev, the plugin doesn't eagerly traverse the client module graph and `?assets=client` provides only the `entry` field during dev. It's currently assumed that CSS files needed for SSR are the CSS files imported on the server module graph.
+
+## Other issues and ideas
+
+See the issue tracker in https://github.com/hi-ogawa/vite-plugin-fullstack/issues
 
 ## Request for Feedback
 
