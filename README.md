@@ -184,16 +184,16 @@ TypeScript support for `?assets` imports can be enabled by adding the following 
 
 ## Examples
 
-| Example                                                                                                        | Playground                                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Basic](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic/)                 | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic)                               |
-| [React Router](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router/)   | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router)                        |
-| [Vue Router / SSG](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router)                          |
-| [Preact Island](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island/)        | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island)                              |
-| [Remix 3](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix/)               | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix)                               |
-| [Nitro](https://github.com/nitrojs/vite-examples/pull/5)                                                       | [stackblitz](https://stackblitz.com/github/hi-ogawa/nitro-vite-examples/tree/10-02-feat_add_vue-router-ssr_example/examples/vue-router-ssr) |
+| Example                                                                                              | Playground                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Basic](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic/)                 | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/basic)                                         |
+| [React Router](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router/)   | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/react-router)                                  |
+| [Vue Router / SSG](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/vue-router)                                    |
+| [Preact Island](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island/)        | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/island)                                        |
+| [Remix 3](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix/)               | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/remix)                                         |
+| [Nitro](https://github.com/nitrojs/vite-examples/pull/5)                                             | [stackblitz](https://stackblitz.com/github/hi-ogawa/nitro-vite-examples/tree/10-02-feat_add_vue-router-ssr_example/examples/vue-router-ssr) |
 | [Cloudflare](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/cloudflare/)       | -                                                                                                                                           |
-| [Data Fetching](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching)                       |
+| [Data Fetching](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching/) | [stackblitz](https://stackblitz.com/github/hi-ogawa/vite-plugin-fullstack/tree/main/examples/data-fetching)                                 |
 
 ## How It Works
 
