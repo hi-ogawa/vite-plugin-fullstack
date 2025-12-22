@@ -1,3 +1,5 @@
+<!-- NOTE: This file is synced to https://github.com/vitejs/vite/discussions/20913. Keep links as absolute URLs. -->
+
 This proposal introduces a new API that enables server code to access client runtime assets metadata required for server-side rendering in a framework agnostic way. This feature is currently prototyped in the package [`@hiogawa/vite-plugin-fullstack`](https://github.com/hi-ogawa/vite-plugin-fullstack/tree/main) with examples listed below.
 
 ## Motivation
@@ -193,7 +195,7 @@ TypeScript support for `?assets` imports can be enabled by adding the following 
 
 ## How It Works
 
-For a detailed explanation of the plugin's internal architecture and implementation, see [HOW_IT_WORKS.md](https://github.com/hi-ogawa/vite-plugin-fullstack/blob/main/HOW_IT_WORKS.md).
+For a detailed explanation of the plugin's internal architecture and implementation, see [HOW_IT_WORKS.md](https://github.com/hi-ogawa/vite-plugin-fullstack/blob/main/docs/HOW_IT_WORKS.md).
 
 ## Known limitations
 
