@@ -29,9 +29,9 @@
     "release": "bumpp"
   },
   "dependencies": {
-    "@rolldown/pluginutils": "1.0.0-beta.55",
+    "@rolldown/pluginutils": "1.0.0-beta.59",
     "magic-string": "^0.30.21",
-    "srvx": "^0.9.8",
+    "srvx": "^0.10.0",
     "strip-literal": "^3.1.0"
   },
   "devDependencies": {
@@ -39,16 +39,16 @@
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^24.10.4",
     "bumpp": "^10.3.2",
-    "oxfmt": "^0.19.0",
+    "oxfmt": "^0.23.0",
     "tinyexec": "^1.0.2",
     "tree-kill": "^1.2.2",
-    "tsdown": "^0.18.2",
+    "tsdown": "^0.18.4",
     "typescript": "^5.9.3",
-    "vite": "^7.3.0",
+    "vite": "^7.3.1",
     "wrangler": "^4.56.0"
   },
   "peerDependencies": {
     "vite": "^7.0.0"
   },
-  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa"
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a"
 }
