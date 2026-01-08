@@ -51,12 +51,12 @@ export function renderHtml(content) {
     <!DOCTYPE html>
     <html>
       <head>
-        ${clientAssets.css.map(css =>
-          `<link rel="stylesheet" href="${css.href}" />`
-        ).join('\n')}
-        ${clientAssets.js.map(js =>
-          `<link rel="modulepreload" href="${js.href}" />`
-        ).join('\n')}
+        ${clientAssets.css
+          .map((css) => `<link rel="stylesheet" href="${css.href}" />`)
+          .join("\n")}
+        ${clientAssets.js
+          .map((js) => `<link rel="modulepreload" href="${js.href}" />`)
+          .join("\n")}
         <script type="module" src="${clientAssets.entry}"></script>
       </head>
       <body>
@@ -101,8 +101,8 @@ import serverAssets from "./server.js?assets=ssr"; // Self-import with query
 export function renderHtml() {
   // All imported CSS files are available in serverAssets.css
   const cssLinks = serverAssets.css
-    .map(css => `<link rel="stylesheet" href="${css.href}" />`)
-    .join('\n');
+    .map((css) => `<link rel="stylesheet" href="${css.href}" />`)
+    .join("\n");
   // ...
 }
 ```
