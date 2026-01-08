@@ -13,9 +13,9 @@
     "@hiogawa/vite-plugin-fullstack": "latest",
     "@vitejs/plugin-vue": "^6.0.3",
     "sirv-cli": "^3.0.1",
-    "srvx": "^0.9.8",
-    "unhead": "^2.0.19",
-    "vite": "^7.3.0",
+    "srvx": "^0.10.0",
+    "unhead": "^2.1.1",
+    "vite": "^7.3.1",
     "vite-plugin-devtools-json": "^1.0.0",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4"

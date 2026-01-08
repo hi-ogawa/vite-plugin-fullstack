@@ -52,12 +52,10 @@ This plugin provides primitives to make building ssr application on Vite simpler
 
 ```js
 import { defineConfig } from "vite";
-import fullstack from "@hiogawa/vite-plugin-fullstack"
+import fullstack from "@hiogawa/vite-plugin-fullstack";
 
 export default defineConfig({
-  plugins: [
-    fullstack(),
-  ],
+  plugins: [fullstack()],
   environments: {
     client: {
       build: {
@@ -76,8 +74,8 @@ export default defineConfig({
           },
         },
       },
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -85,14 +83,11 @@ export default defineConfig({
 
 ```js
 import { defineConfig } from "vite";
-import nitro from "nitro/vite"
-import fullstack from "@hiogawa/vite-plugin-fullstack"
+import nitro from "nitro/vite";
+import fullstack from "@hiogawa/vite-plugin-fullstack";
 
 export default defineConfig({
-  plugins: [
-    nitro(),
-    fullstack(),
-  ],
+  plugins: [nitro(), fullstack()],
 });
 ```
 
@@ -185,14 +180,14 @@ ssr/client universal route (e.g. React router, Vue router, etc.)
 const routes = {
   "/": () => import("routes/index.js"),
   "/about": () => import("routes/about.js"),
-}
+};
 ```
 
 - entry.server.js
 
 ```js
-import.meta.vite.entryAssets("/entry.client.js")
-handleRequest(request, routes)
+import.meta.vite.entryAssets("/entry.client.js");
+handleRequest(request, routes);
 ```
 
 - entry.client.js
@@ -222,13 +217,13 @@ ssr only route + client (ssr-optional) island (e.g. Astro, Fresh)
 const routes = {
   "/": () => import("routes/index.js"),
   "/about": () => import("routes/about.js"),
-}
+};
 ```
 
 - entry.server.js
 
 ```js
-handleRequest(request, routes)
+handleRequest(request, routes);
 ```
 
 - routes/index.js
@@ -244,8 +239,7 @@ export default function Page() {
   - framework can apply transform to implement island
 
 ```js
-export function Island() {
-}
+export function Island() {}
 ```
 
 ## Stages

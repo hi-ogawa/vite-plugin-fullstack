@@ -84,7 +84,7 @@ This core function has different behavior in dev vs build:
 Returns a reference to the static manifest entry (see [Build Mode: Asset Manifest](#build-mode-asset-manifest) for how the manifest is generated):
 
 ```js
-__assets_manifest["ssr"]["/src/entry.client.tsx"]
+__assets_manifest["ssr"]["/src/entry.client.tsx"];
 // {
 //   entry: "/assets/index-abc123.js",           // Entry chunk file name
 //   js: [                                        // Preload chunks
@@ -113,9 +113,9 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
    // Plugin tracks this in importAssetsMetaMap:
    importAssetsMetaMap["client"]["/entry.client.js"] = {
      id: "/entry.client.js",
-     key: "entry.client.js",  // Relative path for machine-independent builds
+     key: "entry.client.js", // Relative path for machine-independent builds
      importerEnvironment: "ssr",
-     isEntry: true
+     isEntry: true,
    };
    ```
 
@@ -126,7 +126,11 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
    if (environment.name === "client") {
      for (const meta of importAssetsMetaMap["client"]) {
        if (meta.isEntry) {
-         this.emitFile({ type: "chunk", id: meta.id, preserveSignature: "exports-only" });
+         this.emitFile({
+           type: "chunk",
+           id: meta.id,
+           preserveSignature: "exports-only",
+         });
        }
      }
    }
@@ -149,25 +153,19 @@ In dev mode, the plugin traverses the module graph to find all CSS dependencies 
    ```js
    // __fullstack_assets_manifest.js
    export default {
-     "client": {
+     client: {
        "entry.client.js": {
          entry: "/assets/entry.client-abc123.js",
-         js: [
-           { href: "/assets/chunk-def456.js" }
-         ],
-         css: [
-           { href: "/assets/style-789xyz.css" }
-         ]
-       }
+         js: [{ href: "/assets/chunk-def456.js" }],
+         css: [{ href: "/assets/style-789xyz.css" }],
+       },
      },
-     "ssr": {
+     ssr: {
        "page.js": {
          js: [],
-         css: [
-           { href: "/assets/page-style-abc.css" }
-         ]
-       }
-     }
+         css: [{ href: "/assets/page-style-abc.css" }],
+       },
+     },
    };
    ```
 

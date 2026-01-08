@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import type { NodeHttp1Handler } from "srvx";
 import { toNodeHandler } from "srvx/node";
 import { type Plugin, isRunnableDevEnvironment } from "vite";
 import { type AssetsPluginOptions, assetsPlugin } from "../plugin";
@@ -40,7 +41,10 @@ export function serverHandlerPlugin(
               const source = getEntrySource(environment.config);
               const mod = await runner.import(source);
               req.url = req.originalUrl ?? req.url;
-              await toNodeHandler(mod.default.fetch)(req, res);
+              const nodeHandler = toNodeHandler(
+                mod.default.fetch,
+              ) as NodeHttp1Handler;
+              await nodeHandler(req, res);
             } catch (e) {
               next(e);
             }
