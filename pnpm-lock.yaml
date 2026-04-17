@@ -44,10 +44,10 @@ importers:
         version: 1.2.2
       tsdown:
         specifier: ^0.18.4
-        version: 0.18.4(typescript@5.9.3)
+        version: 0.18.4(typescript@6.0.3)
       typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
+        specifier: ^6.0.3
+        version: 6.0.3
       vite:
         specifier: ^7.3.1
         version: 7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
@@ -242,7 +242,7 @@ importers:
         version: link:../..
       '@vitejs/plugin-vue':
         specifier: ^6.0.3
-        version: 6.0.3(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
+        version: 6.0.3(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@6.0.3))
       sirv-cli:
         specifier: ^3.0.1
         version: 3.0.1
@@ -260,10 +260,10 @@ importers:
         version: 1.0.0(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))
       vue:
         specifier: ^3.5.26
-        version: 3.5.26(typescript@5.9.3)
+        version: 3.5.26(typescript@6.0.3)
       vue-router:
         specifier: ^4.6.4
-        version: 4.6.4(vue@3.5.26(typescript@5.9.3))
+        version: 4.6.4(vue@3.5.26(typescript@6.0.3))
 
 packages:
 
@@ -2116,8 +2116,8 @@ packages:
     resolution: {integrity: sha512-VCn+LMHbd4t6sF3wfU/+HKT63C9OoyrSIf4b+vtWHpt2U7/4InZG467YDNMFMR70DdHjAdpPWmw2lzRdg0Xqqg==}
     engines: {node: '>=20'}
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3229,11 +3229,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@6.0.3(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.3(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2))(vue@3.5.26(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.53
       vite: 7.3.1(@types/node@24.10.4)(jiti@2.6.1)(yaml@2.8.2)
-      vue: 3.5.26(typescript@5.9.3)
+      vue: 3.5.26(typescript@6.0.3)
 
   '@vue/compiler-core@3.5.26':
     dependencies:
@@ -3283,11 +3283,11 @@ snapshots:
       '@vue/shared': 3.5.26
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.26(vue@3.5.26(typescript@5.9.3))':
+  '@vue/server-renderer@3.5.26(vue@3.5.26(typescript@6.0.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.26
       '@vue/shared': 3.5.26
-      vue: 3.5.26(typescript@5.9.3)
+      vue: 3.5.26(typescript@6.0.3)
 
   '@vue/shared@3.5.26': {}
 
@@ -3718,7 +3718,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  rolldown-plugin-dts@0.20.0(rolldown@1.0.0-beta.57)(typescript@5.9.3):
+  rolldown-plugin-dts@0.20.0(rolldown@1.0.0-beta.57)(typescript@6.0.3):
     dependencies:
       '@babel/generator': 7.28.5
       '@babel/parser': 7.28.5
@@ -3730,7 +3730,7 @@ snapshots:
       obug: 2.1.1
       rolldown: 1.0.0-beta.57
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
     transitivePeerDependencies:
       - oxc-resolver
 
@@ -3901,7 +3901,7 @@ snapshots:
 
   tree-kill@1.2.2: {}
 
-  tsdown@0.18.4(typescript@5.9.3):
+  tsdown@0.18.4(typescript@6.0.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -3912,7 +3912,7 @@ snapshots:
       obug: 2.1.1
       picomatch: 4.0.3
       rolldown: 1.0.0-beta.57
-      rolldown-plugin-dts: 0.20.0(rolldown@1.0.0-beta.57)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.20.0(rolldown@1.0.0-beta.57)(typescript@6.0.3)
       semver: 7.7.3
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
@@ -3920,7 +3920,7 @@ snapshots:
       unconfig-core: 7.4.2
       unrun: 0.2.24
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
@@ -3935,7 +3935,7 @@ snapshots:
     dependencies:
       tagged-tag: 1.0.0
 
-  typescript@5.9.3: {}
+  typescript@6.0.3: {}
 
   unconfig-core@7.4.2:
     dependencies:
@@ -3995,20 +3995,20 @@ snapshots:
       jiti: 2.6.1
       yaml: 2.8.2
 
-  vue-router@4.6.4(vue@3.5.26(typescript@5.9.3)):
+  vue-router@4.6.4(vue@3.5.26(typescript@6.0.3)):
     dependencies:
       '@vue/devtools-api': 6.6.4
-      vue: 3.5.26(typescript@5.9.3)
+      vue: 3.5.26(typescript@6.0.3)
 
-  vue@3.5.26(typescript@5.9.3):
+  vue@3.5.26(typescript@6.0.3):
     dependencies:
       '@vue/compiler-dom': 3.5.26
       '@vue/compiler-sfc': 3.5.26
       '@vue/runtime-dom': 3.5.26
-      '@vue/server-renderer': 3.5.26(vue@3.5.26(typescript@5.9.3))
+      '@vue/server-renderer': 3.5.26(vue@3.5.26(typescript@6.0.3))
       '@vue/shared': 3.5.26
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
 
   workerd@1.20260103.0:
     optionalDependencies:
