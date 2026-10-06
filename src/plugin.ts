@@ -69,7 +69,7 @@ export function assetsPlugin(pluginOpts?: AssetsPluginOptions): Plugin[] {
   const importAssetsMetaMap: {
     [environment: string]: { [id: string]: ImportAssetsMeta };
   } = {};
-  const bundleMap: { [environment: string]: Rollup.OutputBundle } = {};
+  const bundleMap: { [environment: string]: AssetsBundleMetadata } = {};
 
   async function processAssetsImport(
     ctx: Rollup.PluginContext,
@@ -376,7 +376,7 @@ export function assetsPlugin(pluginOpts?: AssetsPluginOptions): Plugin[] {
         return;
       },
       writeBundle(_options, bundle) {
-        bundleMap[this.environment.name] = bundle;
+        bundleMap[this.environment.name] = toAssetsBundleMetadata(bundle);
       },
       buildStart() {
         // dynamically add client entry during build
@@ -648,12 +648,52 @@ type AssetDeps = {
   css: string[];
 };
 
-type AssetDepsMap = {
-  [id: string]: { chunk: Rollup.OutputChunk; deps: AssetDeps };
+type AssetsChunkMetadata = Pick<
+  Rollup.OutputChunk,
+  "type" | "fileName" | "moduleIds" | "imports"
+> & {
+  viteMetadata: { importedCss: Set<string> };
 };
 
-function collectAssetDeps(bundle: Rollup.OutputBundle) {
-  const chunkToDeps = new Map<Rollup.OutputChunk, AssetDeps>();
+type AssetsBundleMetadata = Record<
+  string,
+  | AssetsChunkMetadata
+  | Pick<Rollup.OutputAsset, "type" | "fileName" | "originalFileNames">
+>;
+
+function toAssetsBundleMetadata(
+  bundle: Rollup.OutputBundle,
+): AssetsBundleMetadata {
+  // Output sourcemap callbacks can retain the completed bundler context.
+  // Keep only detached metadata; server asset contents are copied from disk.
+  return Object.fromEntries(
+    Object.entries(bundle).map(([key, output]) => [
+      key,
+      output.type === "chunk"
+        ? {
+            type: output.type,
+            fileName: output.fileName,
+            moduleIds: [...output.moduleIds],
+            imports: [...output.imports],
+            viteMetadata: {
+              importedCss: new Set(output.viteMetadata?.importedCss ?? []),
+            },
+          }
+        : {
+            type: output.type,
+            fileName: output.fileName,
+            originalFileNames: [...output.originalFileNames],
+          },
+    ]),
+  );
+}
+
+type AssetDepsMap = {
+  [id: string]: { chunk: AssetsChunkMetadata; deps: AssetDeps };
+};
+
+function collectAssetDeps(bundle: AssetsBundleMetadata) {
+  const chunkToDeps = new Map<AssetsChunkMetadata, AssetDeps>();
   for (const chunk of Object.values(bundle)) {
     if (chunk.type === "chunk") {
       chunkToDeps.set(chunk, collectAssetDepsInner(chunk.fileName, bundle));
@@ -670,7 +710,7 @@ function collectAssetDeps(bundle: Rollup.OutputBundle) {
 
 function collectAssetDepsInner(
   fileName: string,
-  bundle: Rollup.OutputBundle,
+  bundle: AssetsBundleMetadata,
 ): AssetDeps {
   const visited = new Set<string>();
   const css: string[] = [];

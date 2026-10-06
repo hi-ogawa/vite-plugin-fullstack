@@ -16,4 +16,5 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm lint-check
       - run: pnpm tsc
+      - run: pnpm test:unit
       - run: pnpm test-e2e

@@ -23,6 +23,7 @@
     "build": "tsdown",
     "prepack": "tsdown --clean",
     "test-e2e": "playwright test",
+    "test:unit": "pnpm build && node --expose-gc --test tests/*.test.mjs",
     "tsc": "tsc -b tsconfig.json e2e/tsconfig.json examples/*/tsconfig.json",
     "lint": "oxfmt",
     "lint-check": "oxfmt --check",
