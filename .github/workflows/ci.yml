@@ -17,3 +17,5 @@ jobs:
       - run: pnpm lint-check
       - run: pnpm tsc
       - run: pnpm test-e2e
+      - run: pnpm add -Dw vite@8.3.4
+      - run: pnpm test-e2e e2e/vite-client.test.ts
