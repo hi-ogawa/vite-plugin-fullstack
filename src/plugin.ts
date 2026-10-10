@@ -715,11 +715,31 @@ function patchViteClientPlugin(): Plugin {
       handler(code, id) {
         if (id === viteClientPath) {
           // skip for latest vite https://github.com/vitejs/vite/pull/20767
-          if (code.includes("linkSheetsMap")) return;
+          if (code.includes("linkSheetsMap")) {
+            return;
+          }
+
+          const sheetsMapIndex = code.indexOf("const sheetsMap");
+          const updateStyleIndex = endIndexOf(
+            code,
+            `function updateStyle(id, content) {`,
+          );
+          const removeStyleIndex = endIndexOf(
+            code,
+            `function removeStyle(id) {`,
+          );
+          // Bundled dev serves this module as a re-export without CSS helpers.
+          if (
+            sheetsMapIndex === -1 ||
+            updateStyleIndex === -1 ||
+            removeStyleIndex === -1
+          ) {
+            return;
+          }
 
           const s = new MagicString(code);
           s.prependLeft(
-            code.indexOf("const sheetsMap"),
+            sheetsMapIndex,
             `\
 const linkSheetsMap = new Map();
 document
@@ -730,11 +750,11 @@ document
 `,
           );
           s.appendLeft(
-            endIndexOf(code, `function updateStyle(id, content) {`),
+            updateStyleIndex,
             `if (linkSheetsMap.has(id)) { return }`,
           );
           s.appendLeft(
-            endIndexOf(code, `function removeStyle(id) {`),
+            removeStyleIndex,
             `
 const link = linkSheetsMap.get(id);
 if (link) {
